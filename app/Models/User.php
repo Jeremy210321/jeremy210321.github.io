@@ -70,6 +70,6 @@ class User extends Authenticatable
     //Un usuario puede tener una imagen
     public function image()
     {
-        return $this->morphOneToMany(Image::class, 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

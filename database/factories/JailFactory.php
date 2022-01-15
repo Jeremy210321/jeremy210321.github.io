@@ -7,21 +7,19 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class JailFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    protected $model=Jail::class;
+
+    protected $model = Jail::class;
+
+
     public function definition()
     {
         return [
-            'name'=>$this->faker->streetName,
-            'code'=>$this->faker->iban(),
-            'type'=>$this->faker->randomElement(['low','medium','high']),
-            'capacity'=>$this->faker->numberBetween($min=4,$max=8),
-            'description'=>$this->faker->text(255),
 
+            'name' => $this->faker->streetName,
+            'code' => $this->faker->iban(),
+            'type' => $this->faker->randomElement(['low', 'medium', 'high']),
+            'capacity' => $this->faker->numberBetween($min = 4, $max = 8),
+            'description' => $this->faker->text(255),
         ];
     }
 }

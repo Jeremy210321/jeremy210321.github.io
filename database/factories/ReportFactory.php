@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReportFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+
     protected $model = Report::class;
+
+
     public function definition()
     {
         return [
-            'title'=>$this->faker->title,
-            'description'=>$this->faker->text(255),
+
+            'title' => $this->faker->title,
+
+            'description' => $this->faker->text(255),
         ];
     }
 }
