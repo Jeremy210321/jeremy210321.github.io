@@ -6,46 +6,41 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUserWardTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('user_ward', function (Blueprint $table) {
-            //ID para la tabla de la BDD
+
+            // ID para la tabla de la BDD
             $table->id();
-            //Columna para la tabla de la BDD
+
+            // columnas para la tabla BDD
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('ward_id');
             $table->boolean('state')->default(true);
-            //Relación
-            //Un usuario pude estar en varios pabellones y un pabellon puede tener muchos usuarios
+
+            // Relación
+            //Un usuario puede estar en varios pabellones y un pabellón puede tener muchos usuarios
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            //Un usuario puede estar en varios pabellones y un pabellon puede tener muchos usuarios
+
+
+            //Un usuario puede estar en varios pabellones y un pabellón puede tener muchos usuarios
             $table->foreign('ward_id')
                 ->references('id')
                 ->on('wards')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-
-
-            //columnas especiales para la tabla de la BDD
+            // columnas especiales para la tabla de la BDD
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('user_ward');

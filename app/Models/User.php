@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
+
+
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,10 +20,78 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'role_id',
+        'first_name',
+        'last_name',
+        'username',
+        'personal_phone',
+        'home_phone',
+        'address',
         'password',
+        'email',
+        'birthdate',
     ];
+
+
+
+
+    // Relación de uno a muchos
+    // Un usuario le pertenece un rol
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    // Relación de uno a muchos
+    // Un usuario puede realizar muchos reportes
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
+
+
+    // Relación de muchos a muchos
+    // Un usuario puede estar en varios pabellones
+    public function wards()
+    {
+        return $this->belongsToMany(Ward::class)->withTimestamps();
+    }
+
+
+
+    // Relación de muchos a muchos
+    // Un usuario puede estar en varias cárceles
+    public function jails()
+    {
+        return $this->belongsToMany(Jail::class)->withTimestamps();
+    }
+
+
+
+    // Relación polimórfica uno a uno
+    // Un usuario pueden tener una imagen
+    public function image()
+    {
+        return $this->morphOne(Image::class,'imageable');
+    }
+
+
+    public function getFullName():string{
+        return "$this->first_name $this->last_name";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,35 +111,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    //Relación de uno a muchos
-    //A un usuario le pertenece un rol 
-    public function role(){
-        return $this->belongsTo(Role::class);
-    }
-    //Relación de uno a muchos
-    //A un usuario le pertenece un rol 
-    public function reports(){
-        return $this->hasMany(Report::class);
-    }
-
-
-    //Relación de muchos a muchos
-    //Un usuario puede estar en varios pabellones
-    public function wards()
-    {
-        return $this->belongsToMany(Ward::class)->withTimestamps();
-    }
-    //Relación de muchos a muchos
-    //Un usuario puede estar en varias carceles
-    public function jails()
-    {
-        return $this->belongsToMany(Jail::class)->withTimestamps();
-    }
-    //Relación polimorfica de uno a uno
-    //Un usuario puede tener una imagen
-    public function image()
-    {
-        return $this->morphOne(Image::class, 'imageable');
-    }
 }
