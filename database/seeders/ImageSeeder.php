@@ -13,12 +13,12 @@ class ImageSeeder extends Seeder
     {
         $users = User::all();
 
-        $users->each(function ($user) {
+        $users->each(function ($user)
+        {
             $user->image()->create([
                 'path' => "https://ui-avatars.com/api/?name=$user->first_name+$user->last_name&size=128"
             ]);
         });
-
 
         $reports = Report::all();
 
@@ -27,5 +27,7 @@ class ImageSeeder extends Seeder
                 'path' => "https://picsum.photos/id/$report->id/200/300"
             ]);
         });
+
+
     }
 }

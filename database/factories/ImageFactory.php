@@ -10,11 +10,10 @@ class ImageFactory extends Factory
 
     protected $model = Image::class;
 
-
     public function definition()
     {
         return [
-            
+            //
         ];
     }
 }

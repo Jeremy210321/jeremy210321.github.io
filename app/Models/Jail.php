@@ -7,24 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jail extends Model
 {
+
     use HasFactory;
-    //Relación uno a uno
-    // Una carcel le pertenece a un pabellon
+
+    // Relación de uno a muchos
+    // Una cárcel le pertenece a un pabellón
     public function ward()
     {
         return $this->belongsTo(Ward::class);
     }
-    //Relación de muchos a muchos
-    //Una carcel puede tener muchos usuarios
+
+    // Relación de muchos a muchos
+    // Una cárcel puede tener muchos usuarios
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    //Relación polimorfica de uno a uno
-    //Una carce puede tener una imagen 
+    // Relación polimórfica uno a uno
+    // Una cárcel pueden tener una imagen
     public function image()
     {
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphOne(Image::class,'imageable');
     }
+
+
 }
