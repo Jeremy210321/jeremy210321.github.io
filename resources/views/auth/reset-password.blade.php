@@ -15,9 +15,10 @@
 
     <x-slot name="formDescription">{{"Now you can change your password, make sure it is secure."}}</x-slot>
 
+
     <!--Reset Password  Form-->
     <x-slot name="authForm">
-
+        
         <form method="POST" action="{{ route('password.update') }}" class="space-y-6">
             @csrf
 
@@ -68,9 +69,4 @@
             </div>
         </form>
     </x-slot>
-
-
 </x-auth-layout>
-
-
-

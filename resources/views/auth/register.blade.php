@@ -4,30 +4,28 @@
     $secondary = "indigo";
 @endphp
 
-
-
-
 <x-auth-layout
     :primaryColor="$primary"
     :secondaryColor="$secondary"
     reversColumns=1
 >
 
-
     <!--Login Info-->
     <x-slot name="formTitle">{{"Create Account"}}</x-slot>
 
     <x-slot name="formDescription">{{"Great, now you can be part of us, just sign up."}}</x-slot>
 
+
     <!--Create Count Form-->
     <x-slot name="authForm">
         <form method="POST" action="{{ route('register') }}" class="space-y-6">
             @csrf
+
+
             <!--Email-->
             <div>
                 <x-label for="email"
                          :value="__('Email address')"/>
-
 
                 <x-input id="email"
                          class="block mt-2 w-full"
@@ -39,6 +37,7 @@
                          required
                          autofocus/>
             </div>
+
 
 
             <!--First Name-->
@@ -57,6 +56,7 @@
             </div>
 
 
+
             <!--Last Name-->
             <div>
                 <x-label for="last_name"
@@ -71,6 +71,7 @@
                          placeholder="Enter your last name"
                          required/>
             </div>
+
 
 
             <!--Personal Phone-->
@@ -89,6 +90,7 @@
             </div>
 
 
+
             <!--Home Phone-->
             <div>
                 <x-label for="home_phone"
@@ -103,6 +105,7 @@
                          placeholder="Enter your home phone"
                          required/>
             </div>
+
 
 
             <!--Address-->
@@ -121,6 +124,7 @@
             </div>
 
 
+
             <!-- Password -->
             <div>
                 <x-label for="password"
@@ -134,6 +138,7 @@
                          placeholder="Enter your new password"
                          required/>
             </div>
+
 
             <!-- Confirm Password -->
             <div class="mt-4">
@@ -150,6 +155,7 @@
             </div>
 
 
+
             <div class="mt-4 flex justify-center">
                 <x-button class="w-3/5"
                           :primary-color="$primary"
@@ -159,10 +165,10 @@
             </div>
 
 
+
             <div class="mt-4 flex flex-col items-center justify-center text-md text-gray-500">
                 <!--Sign In-->
                 <span>{{"Already have an account?"}}</span>
-                
                 <x-link href="{{route('login')}}"
                         class="text-base font-semibold"
                         :color="$primary"
@@ -172,11 +178,8 @@
             </div>
 
 
-
-
         </form>
+
+        
     </x-slot>
-
 </x-auth-layout>
-
-

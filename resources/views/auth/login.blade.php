@@ -4,31 +4,26 @@ $primary = 'yellow';
 $secondary = 'pink';
 @endphp
 
-
 <x-auth-layout :primaryColor="$primary" :secondaryColor="$secondary" reversColumns=0>
 
     <!--Login Info-->
     <x-slot name="formTitle">{{ 'Welcome Back' }}</x-slot>
 
-
     <x-slot name="formDescription">{{ 'Please sign in to your account' }}</x-slot>
-
 
     <!--Login  Form-->
     <x-slot name="authForm">
 
         <form method="POST" action="{{ route('login') }}" class="space-y-6">
             @csrf
-
             <!--Username or email-->
             <div>
-                <x-label for="email" :value="__('Username or email address')" />
+                <x-label for="login_field" :value="__('Username or email address')" />
 
-                <x-input id="email" class="block mt-2 w-full" :focus-color="$primary" type="text" name="email"
-                    :value="old('email')" placeholder="Enter your username or email" required autofocus />
-
+                <x-input id="login_field" class="block mt-2 w-full" :focus-color="$primary" type="text"
+                    name="login_field" :value="old('login_field')" placeholder="Enter your username or email" required
+                    autofocus />
             </div>
-
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
@@ -42,14 +37,12 @@ $secondary = 'pink';
                 <x-check id="remember_me" name="remember" :color="$primary" :checked="old('remember') == 'on'">
                     {{ __('Remember me') }}
                 </x-check>
-
                 <!--Forgot Password-->
                 @if (Route::has('password.request'))
                     <x-link href="{{ route('password.request') }}" :color="$primary" :hover="$secondary">
                         {{ __('Forgot your password?') }}
                     </x-link>
                 @endif
-                
             </div>
 
             <div class="mt-4 flex justify-center">
@@ -70,9 +63,4 @@ $secondary = 'pink';
             </div>
         </form>
     </x-slot>
-
-
-
-
-
 </x-auth-layout>

@@ -10,16 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
-
-    // Invocación de la vista
+   //invocacion de la vista
     public function create()
     {
         return view('auth.login');
     }
 
-
-    // Inyecta la clase Request e invoca los métodos respectivos
-    // En base al email y password realiza el inicio de sesión
+   //con la base de Datos  el usuario con el correo y contraseña puede iniciar sesion
     public function store(LoginRequest $request)
     {
         $request->authenticate();
@@ -29,8 +26,7 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
-
-    // Cierre de sesión del usuario
+    //cierre de sesion 
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
@@ -38,8 +34,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        
+
         return redirect('/');
     }
-
 }

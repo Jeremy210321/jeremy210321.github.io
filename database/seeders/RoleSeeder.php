@@ -7,15 +7,13 @@ use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
 {
-
     public function run()
     {
-        $rols = ['admin','director','guard','prisoner'];
+        $rols = ['admin', 'director', 'guard', 'prisoner'];
 
-        for($i=0 ; $i<4 ; $i++)
-        {
+        for ($i = 0; $i < 4; $i++) {
             Role::create([
-                'name'=>$rols[$i]
+                'name' => $rols[$i]
             ]);
         }
     }

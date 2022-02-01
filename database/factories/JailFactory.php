@@ -1,13 +1,13 @@
 <?php
 
 namespace Database\Factories;
-
 use App\Models\Jail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class JailFactory extends Factory
 {
     protected $model = Jail::class;
+
 
     public function definition()
     {
@@ -20,6 +20,5 @@ class JailFactory extends Factory
             'description' => $this->faker->text(255),
         ];
     }
-
-
+   
 }

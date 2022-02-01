@@ -1,13 +1,13 @@
 <?php
 
 namespace Database\Factories;
-
 use App\Models\Ward;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class WardFactory extends Factory
 {
     protected $model = Ward::class;
+
 
     public function definition()
     {
@@ -20,6 +20,4 @@ class WardFactory extends Factory
             'description' => $this->faker->text($maxNbChars = 45),
         ];
     }
-
-
 }

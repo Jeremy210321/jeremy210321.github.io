@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Image extends Model
+
 {
+ // enviar varios datos masivos
+ protected $fillable =[
+     'path',
+ ];
+
     use HasFactory;
 
 
@@ -21,7 +27,7 @@ class Image extends Model
         return $this->morphTo();
     }
 
-
+//Importante pues si no esta la  ruta http puede que guarde su nombre
     public function getUrl(): string
     {
         return Str::startsWith($this->path, 'https://')

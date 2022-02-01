@@ -4,13 +4,11 @@
     $secondary = "pink";
 @endphp
 
-
 <x-auth-layout
     :primaryColor="$primary"
     :secondaryColor="$secondary"
     reversColumns=1
 >
-
 
     <!--Login Info-->
     <x-slot name="formTitle">{{"Forgot Password"}}</x-slot>
@@ -20,7 +18,7 @@
 
     <!--Forgot Password  Form-->
     <x-slot name="authForm">
-
+        
         <form method="POST" action="{{ route('password.email') }}" class="space-y-6">
             @csrf
             <!--Email-->
@@ -59,8 +57,4 @@
             </div>
         </form>
     </x-slot>
-
-
 </x-auth-layout>
-
-

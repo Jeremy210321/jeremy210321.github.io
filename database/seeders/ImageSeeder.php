@@ -20,14 +20,13 @@ class ImageSeeder extends Seeder
             ]);
         });
 
-        $reports = Report::all();
 
+        $reports = Report::all();
+        
         $reports->each(function ($report) {
             $report->image()->create([
                 'path' => "https://picsum.photos/id/$report->id/200/300"
             ]);
         });
-
-
     }
 }
