@@ -96,6 +96,10 @@ class User extends Authenticatable implements MustVerifyEmail
             $ui_avatar_api
         );
     }
+    public function hasRole(string $role)
+    {
+        return $this->role->name === $role;
+    }
 
     public function updateUIAvatar(string $avatar_url)
     {
@@ -109,8 +113,3 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 }
-
-public function hasRole(string $role)
-    {
-        return $this->role->name === $role;
-    }
