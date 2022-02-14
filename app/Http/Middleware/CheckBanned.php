@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class VerifyUserRole
+class CheckBanned
 {
     /**
      * Handle an incoming request.
@@ -14,15 +15,13 @@ class VerifyUserRole
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-
-
-    // Creación de un middleware para verificar que el usuario tenga el rol respectivo
-    public function handle(Request $request, Closure $next, string $role)
+    public function handle(Request $request, Closure $next)
     {
-        $user = $request->route('user');
-
-        if (!$user->hasRole($role)) {
-            return abort(403, 'This action is unauthorized.');
+        if(auth()->check() && (auth()->user()->status==0)){
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route('login')->with('error','Your account does not have access to this website.');
         }
         return $next($request);
     }

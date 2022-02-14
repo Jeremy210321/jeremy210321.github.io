@@ -26,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'email',
         'birthdate',
+        'status'
     ];
 
     protected $hidden = [
@@ -96,6 +97,7 @@ class User extends Authenticatable implements MustVerifyEmail
             $ui_avatar_api
         );
     }
+   
     public function hasRole(string $role)
     {
         return $this->role->name === $role;

@@ -9,7 +9,14 @@ $secondary = 'pink';
     <!--Login Info-->
     <x-slot name="formTitle">{{ 'Welcome Back' }}</x-slot>
 
-    <x-slot name="formDescription">{{ 'Please sign in to your account' }}</x-slot>
+    <x-slot name="formDescription">{{ 'Please sign in to your account' }}
+        @if (session('error'))
+            <div class="font-medium text-red-600">
+                {{ session('error') }}
+            </div>
+        @endif
+    </x-slot>
+
 
     <!--Login  Form-->
     <x-slot name="authForm">
