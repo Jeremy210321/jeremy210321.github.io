@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 // https://laravel.com/docs/8.x/controllers#resource-controllers
 
-// Route::resource('wards', WardController::class);
+Route::resource('wards', WardController::class);
 
 // php artisan route:list --compact
 // php artisan route:list --compact --path=api
-// Route::get('/wards',[WardController::class,'index']);
+// Route::get('/wards', [WardController::class, 'index']);
 // Route::post('/wards',[WardController::class,'store']);
 // Route::get('/wards/{ward}',[WardController::class,'show']);
 // Route::put('/wards/{ward}',[WardController::class,'update']);
@@ -42,6 +42,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/wards/{ward}', [WardController::class, 'update']);
     Route::delete('/wards/{ward}', [WardController::class, 'destroy']);
 
-    //test
-    Route::get('/users/{user}', [WardController::class, 'user_show']);
+    // //test
+    // Route::get('/users/{user}', [WardController::class, 'user_show']);
 });
+
+// Route::middleware('auth:sanctum')->get('/user',function(Request $request){
+//     return $request->user();
+// });

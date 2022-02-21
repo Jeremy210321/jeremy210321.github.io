@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Report extends Model
 {
 
-
     use HasFactory, HasImage;
+    //Permitir la asignacíon masiva 
 
     protected $fillable = ['title', 'description'];
 
@@ -25,7 +25,6 @@ class Report extends Model
     // Un reporte pueden tener una imagen
     public function image()
     {
-        return $this->morphOne(Image::class,'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
-
 }

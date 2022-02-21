@@ -10,7 +10,7 @@ class WardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:manage-wards');
+        $this->middleware('can:manage-wards')->except(('index'));
     }
 
 

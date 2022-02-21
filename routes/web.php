@@ -11,7 +11,7 @@ use App\Http\Controllers\PrisonerJailController;
 use App\Http\Controllers\Profile\PasswordController;
 use App\Http\Controllers\Profile\ProfileAvatarController;
 use App\Http\Controllers\Profile\ProfileInformationController;
-use App\Http\Controllers\ReportController ;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 
@@ -71,13 +71,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/jails/update/{jail}', [JailController::class, 'update'])->name('jail.update');
     Route::get('/jails/destroy/{jail}', [JailController::class, 'destroy'])->name('jail.destroy');
 
-    
-    Route::get('/assignment/prisoners-to-jails', [PrisonerJailController::class,'index'])->name('assignment.prisoners-jails.index');
-    Route::put('/assignment/prisoners-to-jails/{user}', [PrisonerJailController::class,'update'])->name('assignment.prisoners-jails.update');
-    Route::get('/assignment/guards-to-wards', [GuardWardController::class,'index'])->name('assignment.guards-wards.index');
-    Route::put('/assignment/guards-to-wards/{user}', [GuardWardController::class,'update'])->name('assignment.guards-wards.update');
 
-    
+    Route::get('/assignment/prisoners-to-jails', [PrisonerJailController::class, 'index'])->name('assignment.prisoners-jails.index');
+    Route::put('/assignment/prisoners-to-jails/{user}', [PrisonerJailController::class, 'update'])->name('assignment.prisoners-jails.update');
+    Route::get('/assignment/guards-to-wards', [GuardWardController::class, 'index'])->name('assignment.guards-wards.index');
+    Route::put('/assignment/guards-to-wards/{user}', [GuardWardController::class, 'update'])->name('assignment.guards-wards.update');
+    //Rutas para los reportes     
     Route::get('/reports', [ReportController::class, 'index'])->name('report.index');
     Route::get('/reports/create', [ReportController::class, 'create'])->name('report.create');
     Route::post('/reports/create', [ReportController::class, 'store'])->name('report.store');

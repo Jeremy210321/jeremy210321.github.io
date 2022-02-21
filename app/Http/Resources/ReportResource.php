@@ -20,6 +20,7 @@ class ReportResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image?->getUrl(),
           //'address'=>$this->user->address
+          
         ];
     }
 }

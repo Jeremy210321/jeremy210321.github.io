@@ -10,7 +10,6 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class ReportPolicy
 {
     use HandlesAuthorization;
-
     /**
      * Determine whether the user can view any models.
      *

@@ -10,13 +10,10 @@ use Illuminate\Support\Facades\Auth;
 class ReportController extends Controller
 {
 
-
     public function __construct()
     {
         $this->authorizeResource(Report::class, 'report');
     }
-
-
 
     public function index()
     {
@@ -34,12 +31,10 @@ class ReportController extends Controller
         ]);
     }
 
-
     public function create()
     {
         return view('report.create');
     }
-
 
     public function store(Request $request)
     {
@@ -73,7 +68,6 @@ class ReportController extends Controller
     {
         return view('report.update', ['report' => $report]);
     }
-
 
     public function update(Request $request, Report $report)
     {

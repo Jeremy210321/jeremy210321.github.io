@@ -14,35 +14,28 @@ class AuthServiceProvider extends ServiceProvider
 
     protected $policies = [Report::class => ReportPolicy::class];
 
-
-
     public function boot()
     {
         $this->registerPolicies();
 
-        Gate::define('manage-directors', function (User $user)
-        {
+        Gate::define('manage-directors', function (User $user) {
             return $user->role->name === 'admin';
         });
 
-        Gate::define('manage-guards', function (User $user)
-        {
+        Gate::define('manage-guards', function (User $user) {
             return $user->role->name === 'admin';
         });
 
-        Gate::define('manage-prisoners', function (User $user)
-        {
+        Gate::define('manage-prisoners', function (User $user) {
             return $user->role->name === 'admin';
         });
 
 
-        Gate::define('manage-wards', function (User $user)
-         {
+        Gate::define('manage-wards', function (User $user) {
             return $user->role->name === 'director';
         });
 
-        Gate::define('manage-jails', function (User $user)
-        {
+        Gate::define('manage-jails', function (User $user) {
             return $user->role->name === 'director';
         });
 
@@ -50,6 +43,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('manage-assignment', function (User $user) {
             return $user->role->name === 'director';
         });
-
     }
 }
