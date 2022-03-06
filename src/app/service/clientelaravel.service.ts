@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ward } from './Wards';
@@ -18,7 +18,13 @@ export class ClientelaravelService {
   addWard(name: string, location: string, description: string) {
 
     let objectWard: Ward = { name, location, description }
-    return this.httpc.post(this.wardsUrl, objectWard);
+    let token :any;
+     token =localStorage.getItem('tokenUser');
+     let tokenBearer='Bearer ' + token;
+     console.log("tokenuser",tokenBearer)
+    let reqHeader = new HttpHeaders({'Authorization':tokenBearer});
+
+    return this.httpc.post(this.wardsUrl, objectWard,{headers:reqHeader});
   }
   updateWard(name: string, location: string, description: string, idWard: any) {
     let objectWard: Ward = { name, location, description }

@@ -6,6 +6,11 @@ import { ClientelaravelService } from './service/clientelaravel.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+/*@Component({
+  selector: 'app-root',
+  templateUrl: './login-interfaze/login-interfaze.html',
+  styleUrls: ['./login-interfaze/login-interfaze.css']
+})*/
 export class AppComponent {
   title = 'frontendAngular';
 

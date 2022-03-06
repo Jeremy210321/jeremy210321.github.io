@@ -7,13 +7,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { WardComponent } from './prision/ward/ward.component';
 import { LoginComponent } from './prision/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginInterfazeComponent } from './login-interfaze/login-interfaze.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WardComponent,
-    LoginComponent
+    LoginComponent,
+    LoginInterfazeComponent,
+    DashboardComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
