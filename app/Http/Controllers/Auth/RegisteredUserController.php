@@ -60,6 +60,12 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user)); // VERIFICACIÓN DEL CHECK EN EL EMAIL
 
+        $user->image()->create(
+            [
+                'path'=>"https://ui-avatars.com/api/?name=$user->first_name+$user->last_name&size=128"
+            ]
+        );
+
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
