@@ -8,7 +8,7 @@ import { LoginLaravelService } from '../service/login-laravel.service';
   templateUrl: './login-interfaze.component.html',
   styleUrls: ['./login-interfaze.component.css']
 })
-export class LoginInterfazeComponent implements OnInit {
+export class  LoginInterfazeComponent implements OnInit {
 
   myFormLogin!: FormGroup;
   textBtn: string = "Login";

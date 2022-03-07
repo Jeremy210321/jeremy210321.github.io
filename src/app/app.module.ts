@@ -19,7 +19,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     LoginComponent,
     LoginInterfazeComponent,
     DashboardComponent,
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,

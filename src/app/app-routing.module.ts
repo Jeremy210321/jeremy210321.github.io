@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: '',component: MainPageComponent },
   { path: 'dashboard/wards', component: WardComponent },
   { path: 'login', component: LoginInterfazeComponent },
-  { path: 'dashboard', component: DashboardComponent },
+
   //{ path: '/', component: LoginInterfazeComponent },
- // { path: '**', redirectTo: '/', pathMatch: 'prefix'}
+ { path: '**', redirectTo: '/', pathMatch: 'prefix'}
 ];
 
 
